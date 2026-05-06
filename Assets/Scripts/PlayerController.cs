@@ -114,6 +114,15 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat(HashMoveX, lastMoveDir.x);
         anim.SetFloat(HashMoveY, lastMoveDir.y);
         anim.SetFloat(HashSpeed, moveInput.magnitude);
+        FlipSprite();
+    }
+
+    private void FlipSprite()
+    {
+        if (moveInput.x > 0)
+            sr.flipX = false; // facing right
+        else if (moveInput.x < 0)
+            sr.flipX = true;  // facing left
     }
 
     // ── Movement ──────────────────────────────
