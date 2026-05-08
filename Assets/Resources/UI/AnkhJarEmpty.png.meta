@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 46adf5521f7e8b84d883211d739132e7
+guid: 4d2e8de4863871044819a7d24a3d9be7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -705465144167411356
-    second: EmptyHeart_0
+      213: -5173906005193792362
+    second: AnkhJarEmpty_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EmptyHeart_0
+      name: AnkhJarEmpty_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
-        width: 16
-        height: 14
+        x: 1
+        y: 0
+        width: 14
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4615b78603fa536f0800000000000000
-      internalID: -705465144167411356
+      spriteID: 694e92b96e79238b0800000000000000
+      internalID: -5173906005193792362
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      EmptyHeart_0: -705465144167411356
+      AnkhJarEmpty_0: -5173906005193792362
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

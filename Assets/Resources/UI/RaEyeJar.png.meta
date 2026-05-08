@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 46adf5521f7e8b84d883211d739132e7
+guid: 8f094912835ec2c44b96132d6bd22e3b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -705465144167411356
-    second: EmptyHeart_0
+      213: 6854264530636806105
+    second: RaEyeJar_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EmptyHeart_0
+      name: RaEyeJar_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
-        width: 16
-        height: 14
+        x: 1
+        y: 0
+        width: 14
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4615b78603fa536f0800000000000000
-      internalID: -705465144167411356
+      spriteID: 9d79a21764d3f1f50800000000000000
+      internalID: 6854264530636806105
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      EmptyHeart_0: -705465144167411356
+      RaEyeJar_0: 6854264530636806105
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
