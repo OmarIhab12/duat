@@ -41,5 +41,29 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3393825297
+    locked: 0
+  - name: Ground
+    uniqueID: 3330979005
+    locked: 0
+  - name: FloorDecor
+    uniqueID: 1704581695
+    locked: 0
+  - name: Walls
+    uniqueID: 1934009791
+    locked: 0
+  - name: WallDecor
+    uniqueID: 872469995
+    locked: 0
+  - name: Objects
+    uniqueID: 3627135453
+    locked: 0
+  - name: Characters
+    uniqueID: 1349675233
+    locked: 0
+  - name: UI
+    uniqueID: 1415816327
+    locked: 0
   m_RenderingLayers:
   - Default
