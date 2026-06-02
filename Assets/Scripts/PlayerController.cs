@@ -52,6 +52,8 @@ public class PlayerController : MonoBehaviour
     private float attackTimer;
     private float invincibilityTimer;
 
+    private PillarAltar nearbyAltar;
+
     // ── Animator parameter hashes ─────────────
     private static readonly int HashMoveX = Animator.StringToHash("MoveX");
     private static readonly int HashMoveY = Animator.StringToHash("MoveY");
@@ -241,6 +243,17 @@ public class PlayerController : MonoBehaviour
     {
         if (clip == null || audioSource == null) return;
         audioSource.PlayOneShot(clip);
+    }
+
+    //── Interaction with Altar ─────────────────     
+    public void SetNearbyAltar(PillarAltar altar) => nearbyAltar = altar;
+    public void ClearNearbyAltar() => nearbyAltar = null;
+
+    public void OnDeposit(InputValue value)
+    {
+        Debug.Log($"[Player] OnDeposit called with value: {value}");
+        if (!value.isPressed) return;
+        nearbyAltar?.OnDeposit(value);
     }
 
     // ── Public getters ────────────────────────
