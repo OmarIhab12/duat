@@ -199,6 +199,11 @@ public class PlayerController : MonoBehaviour
         InvokeRepeating(nameof(FlashSprite), 0f, 0.1f);
     }
 
+    public void Heal(int amount)
+    {
+        currentHearts = Mathf.Min(currentHearts + amount, maxHearts);
+    }
+
     private void HandleInvincibility()
     {
         if (!isInvincible) return;
