@@ -5466,11 +5466,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21696760c6d8b834d822cf3d28254850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
-  maxHealth: 2
+  maxHealth: 3
   attackDamage: 1
   moveSpeed: 2
   detectionRange: 5
-  attackRange: 0.8
+  attackRange: 0.5
   attackCooldown: 1.2
   knockbackForce: 3
   knockbackDuration: 0.15
