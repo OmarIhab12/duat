@@ -29,7 +29,7 @@ public class AttackHitbox : MonoBehaviour
         EnemyAI enemy = other.GetComponent<EnemyAI>();
 
         if (enemy == null) return;
-        if (enemy.IsDead) return;
+        if (enemy.IsDead()) return;
 
         // Calculate knockback direction — away from player
         Vector2 hitDirection = (other.transform.position

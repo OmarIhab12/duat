@@ -5466,48 +5466,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21696760c6d8b834d822cf3d28254850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
-  maxHealth: 10
-  baseMoveSpeed: 2
-  baseAttackDamage: 1
-  baseDetectRange: 5
-  baseAttackRange: 0.6
+  maxHealth: 2
+  attackDamage: 1
+  moveSpeed: 2
+  detectionRange: 5
+  attackRange: 0.8
   attackCooldown: 1.2
-  attackDelay: 0.3
-  staggerHitCount: 3
-  staggerWindow: 1.5
-  staggerDuration: 1.2
-  staggerSpeedBoost: 0.3
   knockbackForce: 3
   knockbackDuration: 0.15
-  wanderSpeed: 1
-  wanderDirDuration: 1.5
-  wanderRayDistance: 1.5
-  wanderMaxAttempts: 5
-  wanderPausMin: 1
-  wanderPauseMax: 2
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  healAmount: 0.5
-  healDuration: 2
-  maxHealSessions: 2
-  enrageCheckInterval: 60
-  enrageChance: 0.2
-  enrageRoundDelay: 60
-  maxPowerDuration: 20
-  fadingRageDuration: 20
-  cooldownDuration: 20
-  enrageSpeedMult: 1.75
-  enrageDamageMult: 2
-  enrageDetectMult: 1.6
-  fadingSpeedMult: 1.25
-  fadingDamageMult: 1
-  fadingDetectMult: 1.2
-  attackSFX: {fileID: 0}
+  animator: {fileID: 1499455531}
+  audioSource: {fileID: 0}
   hurtSFX: {fileID: 0}
   deathSFX: {fileID: 0}
-  enrageSFX: {fileID: 0}
-  healSFX: {fileID: 0}
+  comboHitsForStagger: 3
+  comboWindow: 1.5
+  healPercent: 0.5
+  maxHealSessions: 2
+  healTickRate: 0.5
+  healRange: 6
+  enrageCheckInterval: 60
+  enrageChance: 0.2
 --- !u!95 &1499455531
 Animator:
   serializedVersion: 7
