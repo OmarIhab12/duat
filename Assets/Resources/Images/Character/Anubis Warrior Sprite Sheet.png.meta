@@ -1,0 +1,1068 @@
+fileFormatVersion: 2
+guid: 62ba12723a2ee254e915d87e80029dcb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 997659276830591537
+    second: Anubis Warrior Sprite Sheet_0
+  - first:
+      213: 6109604620275956142
+    second: Anubis Warrior Sprite Sheet_1
+  - first:
+      213: -5751183158548784850
+    second: Anubis Warrior Sprite Sheet_2
+  - first:
+      213: 7806047779696753564
+    second: Anubis Warrior Sprite Sheet_3
+  - first:
+      213: 8037204401546122390
+    second: Anubis Warrior Sprite Sheet_4
+  - first:
+      213: 8994073955441572501
+    second: Anubis Warrior Sprite Sheet_5
+  - first:
+      213: -4806037859347089572
+    second: Anubis Warrior Sprite Sheet_6
+  - first:
+      213: -3545785387615847197
+    second: Anubis Warrior Sprite Sheet_7
+  - first:
+      213: 242533282821362000
+    second: Anubis Warrior Sprite Sheet_8
+  - first:
+      213: 4261399415959178987
+    second: Anubis Warrior Sprite Sheet_9
+  - first:
+      213: -2899652692547075012
+    second: Anubis Warrior Sprite Sheet_10
+  - first:
+      213: -7902371808459020590
+    second: Anubis Warrior Sprite Sheet_11
+  - first:
+      213: 8585442157059937893
+    second: Anubis Warrior Sprite Sheet_12
+  - first:
+      213: 7636675064331030668
+    second: Anubis Warrior Sprite Sheet_13
+  - first:
+      213: 2316732498445636650
+    second: Anubis Warrior Sprite Sheet_14
+  - first:
+      213: 1139752591409660327
+    second: Anubis Warrior Sprite Sheet_15
+  - first:
+      213: 6937661548395029718
+    second: Anubis Warrior Sprite Sheet_16
+  - first:
+      213: 7677972868582088551
+    second: Anubis Warrior Sprite Sheet_17
+  - first:
+      213: -1124661750315872195
+    second: Anubis Warrior Sprite Sheet_18
+  - first:
+      213: 194570892560798490
+    second: Anubis Warrior Sprite Sheet_19
+  - first:
+      213: 5271442062990211654
+    second: Anubis Warrior Sprite Sheet_20
+  - first:
+      213: 1057989304582002987
+    second: Anubis Warrior Sprite Sheet_21
+  - first:
+      213: 3620918464014370948
+    second: Anubis Warrior Sprite Sheet_22
+  - first:
+      213: -4149672665120839447
+    second: Anubis Warrior Sprite Sheet_23
+  - first:
+      213: -1114136122193213888
+    second: Anubis Warrior Sprite Sheet_24
+  - first:
+      213: 4558786328147651709
+    second: Anubis Warrior Sprite Sheet_25
+  - first:
+      213: -8270506343869969892
+    second: Anubis Warrior Sprite Sheet_26
+  - first:
+      213: 2894085600874754341
+    second: Anubis Warrior Sprite Sheet_27
+  - first:
+      213: -910054280509397215
+    second: Anubis Warrior Sprite Sheet_28
+  - first:
+      213: -6536264918705181893
+    second: Anubis Warrior Sprite Sheet_29
+  - first:
+      213: 3537140250574115153
+    second: Anubis Warrior Sprite Sheet_30
+  - first:
+      213: 9089052363710067479
+    second: Anubis Warrior Sprite Sheet_31
+  - first:
+      213: -863545189102468356
+    second: Anubis Warrior Sprite Sheet_32
+  - first:
+      213: 1055726908848573421
+    second: Anubis Warrior Sprite Sheet_33
+  - first:
+      213: -7287169606524776697
+    second: Anubis Warrior Sprite Sheet_34
+  - first:
+      213: -9139163671868928150
+    second: Anubis Warrior Sprite Sheet_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 192
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13a4c5293d568dd00800000000000000
+      internalID: 997659276830591537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 192
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea932a5380da9c450800000000000000
+      internalID: 6109604620275956142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 192
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e299d7c6361bf20b0800000000000000
+      internalID: -5751183158548784850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 192
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9b3d80f817a45c60800000000000000
+      internalID: 7806047779696753564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 160
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 694dc5df1d2e98f60800000000000000
+      internalID: 8037204401546122390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 161
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59affad1c9e51dc70800000000000000
+      internalID: 8994073955441572501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 162
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c57b988c7068d4db0800000000000000
+      internalID: -4806037859347089572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 161
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ecf261f9f6dacec0800000000000000
+      internalID: -3545785387615847197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 160
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 051d6c85cb6ad5300800000000000000
+      internalID: 242533282821362000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 163
+        width: 21
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beecd42e038832b30800000000000000
+      internalID: 4261399415959178987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 165
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c340ab83d3d52c7d0800000000000000
+      internalID: -2899652692547075012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 163
+        width: 21
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d62db175b2255290800000000000000
+      internalID: -7902371808459020590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 128
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 566983b772e952770800000000000000
+      internalID: 8585442157059937893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 128
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c80d88a928beaf960800000000000000
+      internalID: 7636675064331030668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 128
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a249479ceefa62020800000000000000
+      internalID: 2316732498445636650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 128
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a1cdc671f631df00800000000000000
+      internalID: 1139752591409660327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 128
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d4e8f3cb66874060800000000000000
+      internalID: 6937661548395029718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 96
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76f1ce2f4a3ad8a60800000000000000
+      internalID: 7677972868582088551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 96
+        width: 24
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3014f7c8166460f0800000000000000
+      internalID: -1124661750315872195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1397b6223143b200800000000000000
+      internalID: 194570892560798490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 96
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64a759280ace72940800000000000000
+      internalID: 5271442062990211654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 64
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b29d5c3caabbeae00800000000000000
+      internalID: 1057989304582002987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 64
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 488ca389826104230800000000000000
+      internalID: 3620918464014370948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 64
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e8e25d62b66966c0800000000000000
+      internalID: -4149672665120839447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 64
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0460e3d891bc980f0800000000000000
+      internalID: -1114136122193213888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 32
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7ce5201300144f30800000000000000
+      internalID: 4558786328147651709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 32
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1a040d9c42493d80800000000000000
+      internalID: -8270506343869969892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 32
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52176bd358bd92820800000000000000
+      internalID: 2894085600874754341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 32
+        width: 25
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 127e9eb1476de53f0800000000000000
+      internalID: -910054280509397215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 32
+        width: 30
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3beab2efa58a45a0800000000000000
+      internalID: -6536264918705181893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 13
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 151d43c3152761130800000000000000
+      internalID: 3537140250574115153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 10
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 713fcdb08fcc22e70800000000000000
+      internalID: 9089052363710067479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 8
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf2cc0cc9321404f0800000000000000
+      internalID: -863545189102468356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 6
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deb8db5b702b6ae00800000000000000
+      internalID: 1055726908848573421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 7
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70f41191ad5ceda90800000000000000
+      internalID: -7287169606524776697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anubis Warrior Sprite Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 7
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6f0912df0b2b2180800000000000000
+      internalID: -9139163671868928150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e41bf9b0598382c46ac92dc72077e8bd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Anubis Warrior Sprite Sheet_0: 997659276830591537
+      Anubis Warrior Sprite Sheet_1: 6109604620275956142
+      Anubis Warrior Sprite Sheet_10: -2899652692547075012
+      Anubis Warrior Sprite Sheet_11: -7902371808459020590
+      Anubis Warrior Sprite Sheet_12: 8585442157059937893
+      Anubis Warrior Sprite Sheet_13: 7636675064331030668
+      Anubis Warrior Sprite Sheet_14: 2316732498445636650
+      Anubis Warrior Sprite Sheet_15: 1139752591409660327
+      Anubis Warrior Sprite Sheet_16: 6937661548395029718
+      Anubis Warrior Sprite Sheet_17: 7677972868582088551
+      Anubis Warrior Sprite Sheet_18: -1124661750315872195
+      Anubis Warrior Sprite Sheet_19: 194570892560798490
+      Anubis Warrior Sprite Sheet_2: -5751183158548784850
+      Anubis Warrior Sprite Sheet_20: 5271442062990211654
+      Anubis Warrior Sprite Sheet_21: 1057989304582002987
+      Anubis Warrior Sprite Sheet_22: 3620918464014370948
+      Anubis Warrior Sprite Sheet_23: -4149672665120839447
+      Anubis Warrior Sprite Sheet_24: -1114136122193213888
+      Anubis Warrior Sprite Sheet_25: 4558786328147651709
+      Anubis Warrior Sprite Sheet_26: -8270506343869969892
+      Anubis Warrior Sprite Sheet_27: 2894085600874754341
+      Anubis Warrior Sprite Sheet_28: -910054280509397215
+      Anubis Warrior Sprite Sheet_29: -6536264918705181893
+      Anubis Warrior Sprite Sheet_3: 7806047779696753564
+      Anubis Warrior Sprite Sheet_30: 3537140250574115153
+      Anubis Warrior Sprite Sheet_31: 9089052363710067479
+      Anubis Warrior Sprite Sheet_32: -863545189102468356
+      Anubis Warrior Sprite Sheet_33: 1055726908848573421
+      Anubis Warrior Sprite Sheet_34: -7287169606524776697
+      Anubis Warrior Sprite Sheet_35: -9139163671868928150
+      Anubis Warrior Sprite Sheet_4: 8037204401546122390
+      Anubis Warrior Sprite Sheet_5: 8994073955441572501
+      Anubis Warrior Sprite Sheet_6: -4806037859347089572
+      Anubis Warrior Sprite Sheet_7: -3545785387615847197
+      Anubis Warrior Sprite Sheet_8: 242533282821362000
+      Anubis Warrior Sprite Sheet_9: 4261399415959178987
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
