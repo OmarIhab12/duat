@@ -56,7 +56,7 @@ public class AnkhProjectile : MonoBehaviour
         Debug.Log($"[Ankh] Hit: {other.gameObject.name} tag:{other.tag} layer:{LayerMask.LayerToName(other.gameObject.layer)}");
 
         // Hit player
-        if (other.CompareTag("Player") || other.CompareTag("PlayerBody"))
+        if (other.CompareTag("Player"))
         {
             PlayerController pc = other.GetComponent<PlayerController>()
                 ?? other.GetComponentInParent<PlayerController>();
@@ -74,9 +74,6 @@ public class AnkhProjectile : MonoBehaviour
             DestroyProjectile();
             return;
         }
-
-        // Ignore Anubis itself and other enemies
-        if (other.CompareTag("Enemy")) return;
     }
 
     void DestroyProjectile()

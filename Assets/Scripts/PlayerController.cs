@@ -25,6 +25,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject attackHitbox;
     [SerializeField] private float hitboxActiveTime = 0.15f;
 
+    [Header("Combo")]
+    public float comboWindow = 0.6f; // time to input next attack
+    private int comboStep = 0;
+    private float lastAttackTime;
+    private bool comboQueued;
+
+    [Header("Arrow")]
+    public GameObject arrowPrefab;
+    public Transform arrowSpawnPoint; // empty child GO near player's hand
+
+
     [Header("Health")]
     [SerializeField] private int maxHearts = 3;
     [SerializeField] private float invincibilityDuration = 1f;
@@ -83,6 +94,7 @@ public class PlayerController : MonoBehaviour
         UpdateAnimator();
         HandleAttackCooldown();
         HandleInvincibility();
+        UpdateHitboxFacing();
     }
 
     private void FixedUpdate()
@@ -106,44 +118,51 @@ public class PlayerController : MonoBehaviour
 
     public void OnAttack(InputValue value)
     {
-        if (value.isPressed)
-            TryAttack();
+        if (!value.isPressed || isDead) return;
+
+        // If currently attacking, queue the next hit
+        if (isAttacking)
+        {
+            comboQueued = true;
+            return;
+        }
+
+        TriggerAttack();
     }
 
-    // ── Animator update ───────────────────────
-    private void UpdateAnimator()
+    void TriggerAttack()
     {
-        anim.SetFloat(HashMoveX, lastMoveDir.x);
-        anim.SetFloat(HashMoveY, lastMoveDir.y);
-        anim.SetFloat(HashSpeed, moveInput.magnitude);
-        FlipSprite();
-    }
-
-    private void FlipSprite()
-    {
-        if (moveInput.x > 0)
-            sr.flipX = false; // facing right
-        else if (moveInput.x < 0)
-            sr.flipX = true;  // facing left
-    }
-
-    // ── Movement ──────────────────────────────
-    private void Move()
-    {
-        rb.MovePosition(rb.position + moveInput * moveSpeed * Time.fixedDeltaTime);
-    }
-
-    // ── Attack ────────────────────────────────
-    private void TryAttack()
-    {
-        if (isAttacking || attackTimer > 0f) return;
-
         isAttacking = true;
         attackTimer = attackCooldown;
+        comboQueued = false;
 
-        anim.SetTrigger(HashAttack);
+        float timeSinceLastAttack = Time.time - lastAttackTime;
+        if (timeSinceLastAttack > comboWindow) comboStep = 0;
+        comboStep++;
+        if (comboStep > 3) comboStep = 1;
+        lastAttackTime = Time.time;
+
+        switch (comboStep)
+        {
+            case 1:
+                anim.ResetTrigger("Attack2");
+                anim.ResetTrigger("Attack3");
+                anim.SetTrigger("Attack1");
+                break;
+            case 2:
+                anim.ResetTrigger("Attack1");
+                anim.ResetTrigger("Attack3");
+                anim.SetTrigger("Attack2");
+                break;
+            case 3:
+                anim.ResetTrigger("Attack1");
+                anim.ResetTrigger("Attack2");
+                anim.SetTrigger("Attack3");
+                comboStep = 0;
+                break;
+        }
+
         PlaySound(attackSFX);
-
         PositionHitbox();
 
         if (attackHitbox != null)
@@ -155,6 +174,64 @@ public class PlayerController : MonoBehaviour
         Invoke(nameof(EndAttack), attackCooldown * 0.6f);
     }
 
+    void EndAttack()
+    {
+        isAttacking = false;
+        attackTimer = 0f;
+
+        // Fire queued combo hit immediately
+        if (comboQueued && comboStep < 3)
+            TriggerAttack();
+        else
+            comboQueued = false;
+    }
+
+
+    public void OnThrow(InputValue value)
+    {
+        Debug.Log($"[Player] OnThrow called with value: {value}");
+        if (!value.isPressed || isDead) return;
+        if (isAttacking || attackTimer > 0f) return; // blocked during melee
+        if (arrowPrefab == null) return;
+
+        // Use attack cooldown so melee and throw share the same window
+        isAttacking = true;
+        attackTimer = attackCooldown;
+
+        anim.SetTrigger("Throw");
+
+        Vector2 throwDir = new Vector2(FacingDirection.x, FacingDirection.y);
+        GameObject arrow = Instantiate(arrowPrefab,
+            arrowSpawnPoint.position, Quaternion.identity);
+        arrow.GetComponent<ArrowProjectile>()?.Init(throwDir);
+
+        Invoke(nameof(EndAttack), attackCooldown * 0.6f);
+    }
+
+    // ── Animator update ───────────────────────
+    private void UpdateAnimator()
+    {
+        anim.SetFloat(HashMoveX, lastMoveDir.x);
+        anim.SetFloat(HashMoveY, lastMoveDir.y);
+        anim.SetFloat(HashSpeed, moveInput.magnitude);
+        FlipPlayer(lastMoveDir.x);
+    }
+
+    // private void FlipSprite()
+    // {
+    //     if (moveInput.x > 0)
+    //         sr.flipX = false; // facing right
+    //     else if (moveInput.x < 0)
+    //         sr.flipX = true;  // facing left
+    // }
+
+    // ── Movement ──────────────────────────────
+    private void Move()
+    {
+        rb.MovePosition(rb.position + moveInput * moveSpeed * Time.fixedDeltaTime);
+    }
+
+
     private void PositionHitbox()
     {
         if (attackHitbox == null) return;
@@ -165,11 +242,6 @@ public class PlayerController : MonoBehaviour
     {
         if (attackHitbox != null)
             attackHitbox.SetActive(false);
-    }
-
-    private void EndAttack()
-    {
-        isAttacking = false;
     }
 
     private void HandleAttackCooldown()
@@ -259,6 +331,28 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"[Player] OnDeposit called with value: {value}");
         if (!value.isPressed) return;
         nearbyAltar?.OnDeposit(value);
+    }
+
+
+    // ── Hitbox ───────────────────────────────
+    void UpdateHitboxFacing()
+    {
+        AttackHitbox hitbox = GetComponentInChildren<AttackHitbox>();
+        if (hitbox == null) return;
+        Vector3 pos = hitbox.transform.localPosition;
+        // Mirror X based on facing
+
+        Debug.Log($"[Player] UpdateHitboxFacing — lastMoveDir:{lastMoveDir} pos:{pos}");
+        pos.x = Mathf.Abs(pos.x) * FacingDirection.x;
+        hitbox.transform.localPosition = pos;
+    }
+
+    void FlipPlayer(float xDir)
+    {
+        if (xDir == 0) return;
+        Vector3 scale = transform.localScale;
+        scale.x = xDir > 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
+        transform.localScale = scale;
     }
 
     // ── Public getters ────────────────────────
