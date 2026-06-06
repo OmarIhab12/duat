@@ -19,7 +19,6 @@ public class SpikeTrap : MonoBehaviour
 
     private SpriteRenderer sr;
     private CircleCollider2D col;
-    private bool active = false;
 
     void Awake()
     {

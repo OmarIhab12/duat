@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 950541386070261557}
   - component: {fileID: 5849963981090502841}
   - component: {fileID: 1480656253813093239}
+  - component: {fileID: 894177254328326771}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -417,9 +418,10 @@ MonoBehaviour:
   arrowSpawnPoint: {fileID: 6591633847624716234}
   maxHearts: 5
   invincibilityDuration: 1
-  attackSFX: {fileID: 0}
-  hurtSFX: {fileID: 0}
-  deathSFX: {fileID: 0}
+  attackSFX: {fileID: 8300000, guid: 3ec2e0e83b6d4a5449dc7fa3b30f0b57, type: 3}
+  throwSFX: {fileID: 8300000, guid: 6c185ab254a5a7543807374c93369299, type: 3}
+  hurtSFX: {fileID: 8300000, guid: ca283b3261425ae4c805189159ee7bc3, type: 3}
+  deathSFX: {fileID: 8300000, guid: abb674613867555458181eb3f5995b0d, type: 3}
 --- !u!114 &5849963981090502841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,3 +465,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
   collectedJars: 
+--- !u!81 &894177254328326771
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5212869626330326289}
+  m_Enabled: 1

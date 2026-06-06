@@ -17,7 +17,7 @@ public class JarHUD : MonoBehaviour
 
     void Start()
     {
-        inventory = FindObjectOfType<PlayerInventory>();
+        inventory = FindFirstObjectByType<PlayerInventory>();
         inventory.OnJarCollected += OnJarCollected;
         ResetHUD();
     }

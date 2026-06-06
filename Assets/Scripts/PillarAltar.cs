@@ -22,11 +22,24 @@ public class PillarAltar : MonoBehaviour
     public GameObject interactPrompt;
     public float wrongFlashDuration = 0.5f;
 
+    [Header("Audio")]
+
+    public AudioSource audioSource;
+    public AudioClip depositSFX;      // jar placed in slot
+    public AudioClip wrongOrderSFX;   // wrong jar flash
+    public AudioClip doorOpenSFX;     // door rumbles open
+
     private int depositCount = 0;
     private bool playerInRange = false;
     private bool solved = false;
     private PlayerInventory playerInventory;
 
+
+    void Awake()
+    {
+        if (audioSource == null && GetComponent<AudioSource>())
+            audioSource = GetComponent<AudioSource>();
+    }
     // Called by PlayerInput component via SendMessages
     public void OnDeposit(InputValue value)
     {
@@ -69,6 +82,8 @@ public class PillarAltar : MonoBehaviour
 
         playerInventory.UseJar(expected);
         depositCount++;
+        // Play deposit sound
+        if (depositSFX) audioSource.PlayOneShot(depositSFX);
         Debug.Log($"[Altar] Deposited {expected} — state {depositCount}/3");
 
         UpdateVisual();
@@ -91,6 +106,8 @@ public class PillarAltar : MonoBehaviour
 
     IEnumerator FlashWrong()
     {
+        // Play wrong order sound
+        if (wrongOrderSFX) audioSource.PlayOneShot(wrongOrderSFX);
         if (altarRenderer == null) yield break;
         Color original = altarRenderer.color;
         altarRenderer.color = new Color(1f, 0.2f, 0.2f);
@@ -104,6 +121,8 @@ public class PillarAltar : MonoBehaviour
         if (interactPrompt) interactPrompt.SetActive(false);
         yield return new WaitForSeconds(0.8f);
         doorTilemap.ClearAllTiles();
+        // Play door open sound
+        if (doorOpenSFX) audioSource.PlayOneShot(doorOpenSFX);
         doorTilemap.GetComponent<TilemapCollider2D>().enabled = false;
         Debug.Log("[Altar] Door opened!");
     }

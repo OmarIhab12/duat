@@ -303,6 +303,11 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   hurtSFX: {fileID: 0}
   deathSFX: {fileID: 0}
+  wallDetectDist: 0.5
+  wallFollowDist: 0.4
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 64
   chaseRange: 8
   lungeRange: 4
   lungeForce: 8

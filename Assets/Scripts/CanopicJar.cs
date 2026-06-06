@@ -1,17 +1,11 @@
 using UnityEngine;
 
-public class CanopicJar : MonoBehaviour
+public class CanopicJar : Pickup
 {
     public JarType jarType;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected override void OnPickedUp(Collider2D player)
     {
-        if (!other.CompareTag("Player")) return;
-
-        PlayerInventory inventory = other.GetComponent<PlayerInventory>();
-        if (inventory == null) return;
-
-        inventory.CollectJar(jarType);
-        Destroy(gameObject);
+        player.GetComponent<PlayerInventory>()?.CollectJar(jarType);
     }
 }

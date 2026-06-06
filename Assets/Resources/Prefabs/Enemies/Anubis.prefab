@@ -34,7 +34,8 @@ Transform:
   m_LocalPosition: {x: 2.29, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6529716003792186880}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3074704585778491452
@@ -291,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8340c7aaf2410fc4e8e88d0baa36833d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnubisAI
-  maxHealth: 3
+  maxHealth: 6
   attackDamage: 1
   moveSpeed: 2
   detectionRange: 5
@@ -299,16 +300,21 @@ MonoBehaviour:
   attackCooldown: 1.2
   knockbackForce: 3
   knockbackDuration: 0.15
-  animator: {fileID: 0}
+  animator: {fileID: 3229031088477941994}
   audioSource: {fileID: 0}
   hurtSFX: {fileID: 0}
   deathSFX: {fileID: 0}
+  wallDetectDist: 0.5
+  wallFollowDist: 0.4
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 64
   meleeRange: 1.5
   rangedRange: 6
   meleeDamage: 1
   meleeCooldown: 1.5
-  ankhPrefab: {fileID: 0}
-  throwPoint: {fileID: 0}
+  ankhPrefab: {fileID: 5688846197667085760, guid: 6cfddb9bf5e75774387951fb0849ae0b, type: 3}
+  throwPoint: {fileID: 6529716003792186880}
   throwCooldown: 3
   phase3SpreadAngle: 20
   phase2HealthThreshold: 0.66
@@ -317,3 +323,34 @@ MonoBehaviour:
   phase3SpeedMultiplier: 1.8
   phase3Tint: {r: 1, g: 0.3, b: 0.3, a: 1}
   bossHealthBar: {fileID: 0}
+--- !u!1 &7078681646237479234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6529716003792186880}
+  m_Layer: 7
+  m_Name: ThrowPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6529716003792186880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078681646237479234}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3953899274978872793}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

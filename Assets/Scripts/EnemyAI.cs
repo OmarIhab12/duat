@@ -21,6 +21,16 @@ public abstract class EnemyAI : MonoBehaviour
     public AudioClip hurtSFX;
     public AudioClip deathSFX;
 
+    [Header("Wall Following")]
+    public float wallDetectDist = 0.5f;   // how close to wall before following
+    public float wallFollowDist = 0.4f;   // how close to hug the wall
+    public LayerMask wallLayer;
+
+    private bool isWallFollowing;
+    private Vector2 wallFollowDir;
+    private float wallFollowTimer;
+    private float maxWallFollowTime = 3f; // give up and try direct again after this
+
     protected int currentHealth;
     protected Rigidbody2D rb;
     protected SpriteRenderer sr;
@@ -38,6 +48,7 @@ public abstract class EnemyAI : MonoBehaviour
     protected float wanderPauseTimer;
     protected float wanderPauseDuration = 1f;
     protected bool isWanderPausing;
+    protected bool isKnockedBack = false;
 
     protected virtual void Awake()
     {
@@ -56,6 +67,7 @@ public abstract class EnemyAI : MonoBehaviour
     protected virtual void Update()
     {
         if (isDead) return;
+        if (isKnockedBack) return;
         UpdateStateMachine();
     }
 
@@ -114,7 +126,72 @@ public abstract class EnemyAI : MonoBehaviour
     protected virtual void HandleChase()
     {
         if (player == null) return;
-        Vector2 dir = (player.position - transform.position).normalized;
+
+        Vector2 dirToPlayer = ((Vector2)player.position - (Vector2)transform.position).normalized;
+        float distToPlayer = Vector2.Distance(transform.position, player.position);
+
+        // Check if direct path is clear
+        RaycastHit2D directHit = Physics2D.Raycast(
+            transform.position, dirToPlayer, wallDetectDist, wallLayer);
+
+        if (directHit.collider == null)
+        {
+            // Path is clear — go directly to player
+            isWallFollowing = false;
+            wallFollowTimer = 0f;
+            MoveInDirection(dirToPlayer);
+            return;
+        }
+
+        // Wall ahead — start or continue wall following
+        if (!isWallFollowing)
+        {
+            isWallFollowing = true;
+            // Pick a wall follow direction — try left first, then right
+            Vector2 leftDir = new Vector2(-dirToPlayer.y, dirToPlayer.x);
+            Vector2 rightDir = new Vector2(dirToPlayer.y, -dirToPlayer.x);
+
+            RaycastHit2D leftHit = Physics2D.Raycast(
+                transform.position, leftDir, wallDetectDist, wallLayer);
+
+            wallFollowDir = leftHit.collider == null ? leftDir : rightDir;
+            wallFollowTimer = 0f;
+        }
+
+        wallFollowTimer += Time.deltaTime;
+
+        // Give up wall following if stuck too long
+        if (wallFollowTimer > maxWallFollowTime)
+        {
+            isWallFollowing = false;
+            wallFollowTimer = 0f;
+        }
+
+        // Wall follow — hug the wall and slide along it
+        RaycastHit2D wallHit = Physics2D.Raycast(
+            transform.position, -wallFollowDir, wallFollowDist + 0.1f, wallLayer);
+
+        if (wallHit.collider == null)
+        {
+            // Lost the wall — turn toward it
+            wallFollowDir = new Vector2(-wallFollowDir.y, wallFollowDir.x);
+        }
+
+        // Check wall ahead in follow direction
+        RaycastHit2D followHit = Physics2D.Raycast(
+            transform.position, wallFollowDir, wallDetectDist, wallLayer);
+
+        if (followHit.collider != null)
+        {
+            // Corner — turn away from wall
+            wallFollowDir = new Vector2(wallFollowDir.y, -wallFollowDir.x);
+        }
+
+        MoveInDirection(wallFollowDir);
+    }
+
+    void MoveInDirection(Vector2 dir)
+    {
         rb.linearVelocity = dir * moveSpeed;
         FlipSprite(dir.x);
         animator.SetFloat("Speed", rb.linearVelocity.magnitude);
@@ -144,6 +221,15 @@ public abstract class EnemyAI : MonoBehaviour
         else OnDamaged(damage, hitDirection);
     }
 
+    protected IEnumerator ApplyKnockback(Vector2 dir)
+    {
+        isKnockedBack = true;
+        rb.linearVelocity = dir * knockbackForce;
+        yield return new WaitForSeconds(knockbackDuration);
+        rb.linearVelocity = Vector2.zero;
+        isKnockedBack = false;
+    }
+
     // Hook for subclasses to react to damage (stagger, enrage etc)
     protected virtual void OnDamaged(int damage, Vector2 hitDirection) { }
 
@@ -158,12 +244,12 @@ public abstract class EnemyAI : MonoBehaviour
         Destroy(gameObject, 2f);
     }
 
-    protected IEnumerator ApplyKnockback(Vector2 dir)
-    {
-        rb.linearVelocity = dir * knockbackForce;
-        yield return new WaitForSeconds(knockbackDuration);
-        rb.linearVelocity = Vector2.zero;
-    }
+    // protected IEnumerator ApplyKnockback(Vector2 dir)
+    // {
+    //     rb.linearVelocity = dir * knockbackForce;
+    //     yield return new WaitForSeconds(knockbackDuration);
+    //     rb.linearVelocity = Vector2.zero;
+    // }
 
     protected void FlipSprite(float xDir)
     {

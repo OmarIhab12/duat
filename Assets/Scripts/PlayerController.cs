@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] private AudioClip attackSFX;
+    [SerializeField] private AudioClip throwSFX;
     [SerializeField] private AudioClip hurtSFX;
     [SerializeField] private AudioClip deathSFX;
 
@@ -199,10 +200,12 @@ public class PlayerController : MonoBehaviour
         attackTimer = attackCooldown;
 
         anim.SetTrigger("Throw");
+        PlaySound(throwSFX);
 
         Vector2 throwDir = new Vector2(FacingDirection.x, FacingDirection.y);
         GameObject arrow = Instantiate(arrowPrefab,
             arrowSpawnPoint.position, Quaternion.identity);
+        arrow.layer = LayerMask.NameToLayer("Arrow");
         arrow.GetComponent<ArrowProjectile>()?.Init(throwDir);
 
         Invoke(nameof(EndAttack), attackCooldown * 0.6f);

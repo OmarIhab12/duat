@@ -1,17 +1,15 @@
 using UnityEngine;
 
-public class HeartPickup : MonoBehaviour
+public class HeartPickup : Pickup
 {
-    void OnTriggerEnter2D(Collider2D other)
+    protected override bool CanPickup(Collider2D player)
     {
-        if (!other.CompareTag("Player")) return;
+        PlayerController pc = player.GetComponent<PlayerController>();
+        return pc != null && pc.CurrentHearts < pc.MaxHearts;
+    }
 
-        PlayerController player = other.GetComponent<PlayerController>();
-        if (player == null) return;
-
-        if (player.CurrentHearts >= player.MaxHearts) return;
-
-        player.Heal(1);
-        Destroy(gameObject);
+    protected override void OnPickedUp(Collider2D player)
+    {
+        player.GetComponent<PlayerController>()?.Heal(1);
     }
 }
