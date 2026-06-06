@@ -49,7 +49,7 @@ public class ArrowProjectile : MonoBehaviour
         }
 
         // Ignore player and pickups
-        if (other.CompareTag("Player") || other.CompareTag("Pickup")) return;
+        if (other.CompareTag("Player")) return;
     }
 
     void DestroyArrow()

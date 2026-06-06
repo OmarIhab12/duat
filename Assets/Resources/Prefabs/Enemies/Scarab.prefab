@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4069549979952054280}
   - component: {fileID: 5701655915130221439}
   - component: {fileID: 7730519032829260475}
+  - component: {fileID: 8974237883397513967}
   m_Layer: 7
   m_Name: Scarab
   m_TagString: Untagged
@@ -180,11 +181,11 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 8
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -192,23 +193,41 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.125
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -8.0032
+      outSlope: -8.0032
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.25
+      value: 0.5
+      inSlope: -2.0008
+      outSlope: -2.0008
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.25
+      inSlope: -0.5002
+      outSlope: -0.5002
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.12505
+      outSlope: -0.12505
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -217,7 +236,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -291,18 +310,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5757ceddd13977c47ad2294faf3f83d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScarabAI
-  maxHealth: 3
+  maxHealth: 4
   attackDamage: 1
-  moveSpeed: 2
-  detectionRange: 5
-  attackRange: 0.8
+  moveSpeed: 3
+  detectionRange: 7
+  attackRange: 1
   attackCooldown: 1.2
   knockbackForce: 3
   knockbackDuration: 0.15
   animator: {fileID: 5701655915130221439}
-  audioSource: {fileID: 0}
-  hurtSFX: {fileID: 0}
-  deathSFX: {fileID: 0}
+  audioSource: {fileID: 4069549979952054280}
+  hurtSFX: {fileID: 8300000, guid: 5d558b11346a15d4580d58a5ef79fabe, type: 3}
+  deathSFX: {fileID: 8300000, guid: 4e9e9fc59ead17545a60322e4d6720a6, type: 3}
   wallDetectDist: 0.5
   wallFollowDist: 0.4
   wallLayer:
@@ -313,3 +332,125 @@ MonoBehaviour:
   lungeForce: 8
   lungeWindupTime: 0.4
   attackCoolDown: 2.5
+  scarabLoopSource: {fileID: 8974237883397513967}
+  ambientChirpSFX: {fileID: 8300000, guid: 3ea3d4cda80a4484398f61610d2335bd, type: 3}
+  chaseSFX: {fileID: 8300000, guid: 3ea3d4cda80a4484398f61610d2335bd, type: 3}
+  windupSFX: {fileID: 8300000, guid: 499ce3b02b5f65940af4d7642c47d3be, type: 3}
+  lungeSFX: {fileID: 8300000, guid: 1efb4c10b7630e944aea19e5ca9a90da, type: 3}
+  attackHitSFX: {fileID: 8300000, guid: e0bdee09b05be654bb81be753b40c17f, type: 3}
+  cooldownSFX: {fileID: 0}
+--- !u!82 &8974237883397513967
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614023236180649449}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 3ea3d4cda80a4484398f61610d2335bd, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.8
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 0
+  MinDistance: 1
+  MaxDistance: 8
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.125
+      value: 1
+      inSlope: -8.0032
+      outSlope: -8.0032
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.25
+      value: 0.5
+      inSlope: -2.0008
+      outSlope: -2.0008
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.25
+      inSlope: -0.5002
+      outSlope: -0.5002
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.12505
+      outSlope: -0.12505
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

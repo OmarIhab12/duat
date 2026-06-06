@@ -264,15 +264,15 @@ public class MummyAI : EnemyAI
     IEnumerator DuckGrowlForSFX(AudioClip clip)
     {
         // Duck growl volume
-        growlSource.volume = 0.5f;
+        growlSource.volume = 0.4f;
 
         // Play one-shot SFX
-        audioSource.PlayOneShot(clip);
+        audioSource?.PlayOneShot(clip);
 
         // Wait for SFX to finish
         yield return new WaitForSeconds(clip.length * 0.8f);
 
         // Restore growl volume
-        growlSource.volume = 1f;
+        growlSource.volume = 0.8f;
     }
 }

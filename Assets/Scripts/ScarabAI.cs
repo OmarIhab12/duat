@@ -12,6 +12,17 @@ public class ScarabAI : EnemyAI
     public float lungeWindupTime = 0.4f;
     public float attackCoolDown = 2.5f;
 
+    [Header("Scarab — Audio")]
+    public AudioSource scarabLoopSource; // dedicated loop source
+    public AudioClip ambientChirpSFX;    // idle loop chirping
+    public AudioClip chaseSFX;           // buzz when chasing
+    public AudioClip windupSFX;          // vibration sound during windup
+    public AudioClip lungeSFX;           // dash sound during lunge
+    public AudioClip attackHitSFX;       // when lunge hits player
+    public AudioClip cooldownSFX;        // brief settle sound after attack
+
+
+
     private enum AttackPhase { Ready, Windup, Lunge, Cooldown }
     private AttackPhase attackPhase = AttackPhase.Ready;
     private Coroutine attackCoroutine;
@@ -23,6 +34,8 @@ public class ScarabAI : EnemyAI
         moveSpeed = 3.5f;
         detectionRange = chaseRange;
         attackRange = lungeRange;
+
+        PlayLoop(ambientChirpSFX);
     }
 
     protected override void UpdateStateMachine()
@@ -37,12 +50,14 @@ public class ScarabAI : EnemyAI
             case EnemyState.Wander:
                 HandleWander();
                 animator.SetBool("IsChasing", false);
+                PlayLoop(ambientChirpSFX);
                 if (dist < chaseRange)
                     ChangeState(EnemyState.Chase);
                 break;
 
             case EnemyState.Chase:
                 // Only move and check transitions when not attacking
+                PlayLoop(chaseSFX);
                 if (attackPhase == AttackPhase.Ready)
                 {
                     HandleChase();
@@ -77,6 +92,7 @@ public class ScarabAI : EnemyAI
         Vector2 targetPos = player.position;
         Vector2 lungeDir = (targetPos - rb.position).normalized;
         FlipSprite(lungeDir.x);
+        PlaySFX(windupSFX);
 
         Debug.Log($"[Scarab] Windup start — pos:{rb.position} target:{targetPos} dir:{lungeDir}");
 
@@ -92,6 +108,7 @@ public class ScarabAI : EnemyAI
 
         attackPhase = AttackPhase.Lunge;
         animator.SetBool("IsChasing", true);
+        PlaySFX(lungeSFX);
 
         Debug.Log($"[Scarab] Lunge start — pos:{rb.position} velocity about to set:{lungeDir * lungeForce}");
 
@@ -120,6 +137,7 @@ public class ScarabAI : EnemyAI
             if (hit != null && hit.GetComponent<PlayerController>())
             {
                 Debug.Log("[Scarab] Hit player");
+                PlaySFX(attackHitSFX);
                 hit.GetComponentInParent<PlayerController>()?.TakeDamage(attackDamage);
                 break;
             }
@@ -132,6 +150,8 @@ public class ScarabAI : EnemyAI
         animator.SetBool("IsChasing", false);
 
         rb.linearVelocity = Vector2.zero;
+        // Cooldown settle sound
+        PlaySFX(cooldownSFX);
         yield return StartCoroutine(AttackCooldown());
 
         attackPhase = AttackPhase.Ready;
@@ -171,9 +191,32 @@ public class ScarabAI : EnemyAI
     protected override void Die()
     {
         if (attackCoroutine != null) StopCoroutine(attackCoroutine);
+        scarabLoopSource?.Stop();
         sr.color = Color.white;
         animator.SetBool("IsChasing", false);
         base.Die();
+    }
+
+    void PlayLoop(AudioClip clip)
+    {
+        if (clip == null) return;
+        if (scarabLoopSource.clip == clip && scarabLoopSource.isPlaying) return;
+        scarabLoopSource.clip = clip;
+        scarabLoopSource.Play();
+    }
+
+    void PlaySFX(AudioClip clip)
+    {
+        if (clip == null) return;
+        StartCoroutine(DuckLoopForSFX(clip));
+    }
+
+    IEnumerator DuckLoopForSFX(AudioClip clip)
+    {
+        scarabLoopSource.volume = 0.4f;
+        audioSource?.PlayOneShot(clip);
+        yield return new WaitForSeconds(clip.length * 0.8f);
+        scarabLoopSource.volume = 0.8f;
     }
 
 }

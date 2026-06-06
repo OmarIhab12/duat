@@ -33,6 +33,7 @@ public class PillarAltar : MonoBehaviour
     private bool playerInRange = false;
     private bool solved = false;
     private PlayerInventory playerInventory;
+    private Coroutine flashCoroutine;
 
 
     void Awake()
@@ -76,6 +77,7 @@ public class PillarAltar : MonoBehaviour
         if (!playerInventory.HasJar(expected))
         {
             Debug.Log($"[Altar] Need {expected} next but player doesn't have it.");
+            if (flashCoroutine != null) StopCoroutine(flashCoroutine);
             StartCoroutine(FlashWrong());
             return;
         }
@@ -109,10 +111,10 @@ public class PillarAltar : MonoBehaviour
         // Play wrong order sound
         if (wrongOrderSFX) audioSource.PlayOneShot(wrongOrderSFX);
         if (altarRenderer == null) yield break;
-        Color original = altarRenderer.color;
         altarRenderer.color = new Color(1f, 0.2f, 0.2f);
         yield return new WaitForSeconds(wrongFlashDuration);
-        altarRenderer.color = original;
+        altarRenderer.color = Color.white; // always resets to white
+        flashCoroutine = null;
     }
 
     IEnumerator OpenDoor()
