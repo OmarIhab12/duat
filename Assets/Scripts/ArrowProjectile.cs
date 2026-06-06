@@ -25,6 +25,8 @@ public class ArrowProjectile : MonoBehaviour
     {
         if (hit) return;
         transform.Translate(moveDir * speed * Time.deltaTime, Space.World);
+        if (GetComponent<CapsuleCollider2D>().enabled == false)
+            GetComponent<CapsuleCollider2D>().enabled = true; // enable collider after first frame to avoid hitting player on spawn
     }
 
     void OnTriggerEnter2D(Collider2D other)

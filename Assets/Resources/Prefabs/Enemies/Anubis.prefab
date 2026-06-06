@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 5795333537107035701}
   - component: {fileID: 3229031088477941994}
   - component: {fileID: 80365966747248967}
+  - component: {fileID: 1155565807223644972}
+  - component: {fileID: 2137972532196487639}
   m_Layer: 7
   m_Name: Anubis
   m_TagString: Untagged
@@ -181,6 +183,317 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
+  DopplerLevel: 0
+  MinDistance: 1
+  MaxDistance: 8
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.125
+      value: 1
+      inSlope: -8.0032
+      outSlope: -8.0032
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.25
+      value: 0.5
+      inSlope: -2.0008
+      outSlope: -2.0008
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.25
+      inSlope: -0.5002
+      outSlope: -0.5002
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.12505
+      outSlope: -0.12505
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!95 &3229031088477941994
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3329509965907892422}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e066a46aa2e50cc44a0892fea1e1ce81, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &80365966747248967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3329509965907892422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8340c7aaf2410fc4e8e88d0baa36833d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnubisAI
+  maxHealth: 15
+  attackDamage: 1
+  moveSpeed: 2
+  detectionRange: 999
+  attackRange: 1
+  attackCooldown: 1.2
+  knockbackForce: 3
+  knockbackDuration: 0.15
+  animator: {fileID: 3229031088477941994}
+  audioSource: {fileID: 5795333537107035701}
+  hurtSFX: {fileID: 8300000, guid: 41b45961664fbe149b280634a8c2ef48, type: 3}
+  deathSFX: {fileID: 8300000, guid: dfb0d01a02743014b9075691abfe44ea, type: 3}
+  wallDetectDist: 0.5
+  wallFollowDist: 0.4
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  meleeRange: 1.5
+  rangedRange: 6
+  meleeDamage: 1
+  meleeCooldown: 1.5
+  ankhPrefab: {fileID: 5688846197667085760, guid: 6cfddb9bf5e75774387951fb0849ae0b, type: 3}
+  throwPoint: {fileID: 6529716003792186880}
+  throwCooldown: 3
+  phase3SpreadAngle: 20
+  phase2HealthThreshold: 0.66
+  phase3HealthThreshold: 0.33
+  phase2SpeedMultiplier: 1.4
+  phase3SpeedMultiplier: 1.8
+  phase3Tint: {r: 1, g: 0.3, b: 0.3, a: 1}
+  bossHealthBar: {fileID: 0}
+  mummyPrefab: {fileID: 7956252636316341562, guid: 1d9b0864866a2114faaf555cb801fe44, type: 3}
+  scarabPrefab: {fileID: 1614023236180649449, guid: 095e998449e9dd84d967af5851d245d4, type: 3}
+  minionsSpawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  doorTilemap: {fileID: 0}
+  growlingAudioSource: {fileID: 1155565807223644972}
+  DoorOpeningAudioSource: {fileID: 2137972532196487639}
+  ambientBreathSFX: {fileID: 8300000, guid: 6f9953e6ad700bf4f926bc23d8dc2f8a, type: 3}
+  phase2EntrySFX: {fileID: 8300000, guid: e60cb776ffebd864d84e386e9c3340a6, type: 3}
+  phase3EntrySFX: {fileID: 8300000, guid: 22243a3a65739b040b21534c107281af, type: 3}
+  stabWindupSFX: {fileID: 8300000, guid: 199d2020ed7669b4f84a5eef1cb6f131, type: 3}
+  stabHitSFX: {fileID: 8300000, guid: bfe5c7db0e4df7c4d9b0f48106ef2df8, type: 3}
+  throwSFX: {fileID: 8300000, guid: 2b26432388f3cf8439c673fa920a564f, type: 3}
+  ankhImpactSFX: {fileID: 8300000, guid: 4d2ed1f6f963deb4aad96c5032574354, type: 3}
+  doorOpenSFX: {fileID: 8300000, guid: 42f1dc5bfac78a54e8cd0e4533be7e1a, type: 3}
+--- !u!82 &1155565807223644972
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3329509965907892422}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 0
+  MinDistance: 1
+  MaxDistance: 8
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.125
+      value: 1
+      inSlope: -8.0032
+      outSlope: -8.0032
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.25
+      value: 0.5
+      inSlope: -2.0008
+      outSlope: -2.0008
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.25
+      inSlope: -0.5002
+      outSlope: -0.5002
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.12505
+      outSlope: -0.12505
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &2137972532196487639
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3329509965907892422}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -258,71 +571,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &3229031088477941994
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3329509965907892422}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e066a46aa2e50cc44a0892fea1e1ce81, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &80365966747248967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3329509965907892422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8340c7aaf2410fc4e8e88d0baa36833d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnubisAI
-  maxHealth: 6
-  attackDamage: 1
-  moveSpeed: 2
-  detectionRange: 5
-  attackRange: 0.8
-  attackCooldown: 1.2
-  knockbackForce: 3
-  knockbackDuration: 0.15
-  animator: {fileID: 3229031088477941994}
-  audioSource: {fileID: 0}
-  hurtSFX: {fileID: 0}
-  deathSFX: {fileID: 0}
-  wallDetectDist: 0.5
-  wallFollowDist: 0.4
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  meleeRange: 1.5
-  rangedRange: 6
-  meleeDamage: 1
-  meleeCooldown: 1.5
-  ankhPrefab: {fileID: 5688846197667085760, guid: 6cfddb9bf5e75774387951fb0849ae0b, type: 3}
-  throwPoint: {fileID: 6529716003792186880}
-  throwCooldown: 3
-  phase3SpreadAngle: 20
-  phase2HealthThreshold: 0.66
-  phase3HealthThreshold: 0.33
-  phase2SpeedMultiplier: 1.4
-  phase3SpeedMultiplier: 1.8
-  phase3Tint: {r: 1, g: 0.3, b: 0.3, a: 1}
-  bossHealthBar: {fileID: 0}
 --- !u!1 &7078681646237479234
 GameObject:
   m_ObjectHideFlags: 0

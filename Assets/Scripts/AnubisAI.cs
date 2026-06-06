@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.Tilemaps;
 
 public class AnubisAI : EnemyAI
 {
@@ -27,6 +29,27 @@ public class AnubisAI : EnemyAI
     [Header("Boss Health Bar")]
     public BossHealthBar bossHealthBar; // assign in inspector
 
+    [Header("Minions")]
+    public GameObject mummyPrefab;
+    public GameObject scarabPrefab;
+    public Transform[] minionsSpawnPoints;   // 3 spawn points around arena
+
+    [Header("Door")]
+    public Tilemap doorTilemap;
+
+    [Header("Audio")]
+    public AudioSource growlingAudioSource;
+    public AudioSource DoorOpeningAudioSource;
+    public AudioClip ambientBreathSFX;    // low ambient loop always playing
+    public AudioClip phase2EntrySFX;      // roar when entering phase 2
+    public AudioClip phase3EntrySFX;      // powerful roar when entering phase 3
+    public AudioClip stabWindupSFX;       // windup before stab
+    public AudioClip stabHitSFX;          // stab connects
+    public AudioClip throwSFX;            // ankh throw sound
+    public AudioClip ankhImpactSFX;       // ankh hits wall (add to AnkhProjectile too)
+    public AudioClip doorOpenSFX;     // door rumbles open
+
+    private List<GameObject> activeMinions = new List<GameObject>();
     private int currentPhase = 1;
     private float baseSpeed;
     private float lastMeleeTime;
@@ -46,6 +69,11 @@ public class AnubisAI : EnemyAI
         base.Start();
         lastThrowTime = -throwCooldown; // ready to throw immediately at game start
         lastMeleeTime = -meleeCooldown; // ready to melee immediately at game start
+
+        // Start ambient breath loop immediately
+        PlayLoop(ambientBreathSFX);
+        SpawnMinions();
+
     }
 
     protected override void UpdateStateMachine()
@@ -102,15 +130,76 @@ public class AnubisAI : EnemyAI
         if (phase == 2)
         {
             moveSpeed = baseSpeed * phase2SpeedMultiplier;
+            PlaySFX(phase2EntrySFX);
             StartCoroutine(PhaseTransitionFlash(Color.yellow));
+            StartCoroutine(SpawnMinionsDelayed(1f));
         }
         else if (phase == 3)
         {
             moveSpeed = baseSpeed * phase3SpeedMultiplier;
+            PlaySFX(phase3EntrySFX);
             meleeDamage = 2;
             sr.color = phase3Tint;
             StartCoroutine(PhaseTransitionFlash(Color.red));
+            StartCoroutine(SpawnMinionsDelayed(1f));
         }
+    }
+
+    void KillAllMinions()
+    {
+        foreach (GameObject minion in activeMinions)
+        {
+            if (minion != null)
+                Destroy(minion);
+        }
+        activeMinions.Clear();
+    }
+
+    IEnumerator SpawnMinionsDelayed(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SpawnMinions();
+    }
+
+    void SpawnMinions()
+    {
+        // Clean up dead minions from previous tracking list before spawning new ones
+        activeMinions.RemoveAll(m => m == null);
+
+        // Spawn mummies and scarabs at each spawn point, with adjustments for phase difficulty
+        for (int i = 0; i < minionsSpawnPoints.Length; i++)
+        {
+            if (mummyPrefab == null || minionsSpawnPoints[i] == null) continue;
+            GameObject mummy = Instantiate(mummyPrefab,
+                minionsSpawnPoints[i].position, Quaternion.identity);
+            activeMinions.Add(mummy);
+
+            // Set aggressive mode — always chase
+            MummyAI mummyAi = mummy.GetComponent<MummyAI>();
+            if (mummyAi != null)
+            {
+                mummyAi.detectionRange = 999f;
+                mummyAi.moveSpeed *= currentPhase == 3 ? 1.5f : 1.2f; // faster per phase
+                mummyAi.enrageChance = 0f; // 0% chance to enrage.
+                mummyAi.healPercent = 0f; // disable healing
+            }
+
+            if (scarabPrefab == null || minionsSpawnPoints[i] == null) continue;
+            GameObject scarab = Instantiate(scarabPrefab,
+                minionsSpawnPoints[i].position, Quaternion.identity);
+            activeMinions.Add(scarab);
+
+            // Set aggressive mode
+            ScarabAI scarabAi = scarab.GetComponent<ScarabAI>();
+            if (scarabAi != null)
+            {
+                scarabAi.chaseRange = 999f;        // always chases
+                scarabAi.moveSpeed *= currentPhase == 3 ? 1.5f : 1.2f;
+                scarabAi.attackCoolDown *= 0.7f;    // more frequent lunges
+            }
+        }
+
+        Debug.Log($"[Anubis] Spawned minion wave for phase {currentPhase}");
     }
 
     IEnumerator PhaseTransitionFlash(Color flashCol)
@@ -137,6 +226,7 @@ public class AnubisAI : EnemyAI
         isActing = true;
         lastMeleeTime = Time.time;
 
+        PlaySFX(stabWindupSFX);
         animator.SetTrigger("Stab");
 
         // Wait for stab windup
@@ -147,7 +237,10 @@ public class AnubisAI : EnemyAI
             transform.position, meleeRange,
             LayerMask.GetMask("Player"));
         if (hit != null && hit.CompareTag("Player"))
+        {
+            PlaySFX(stabHitSFX);
             hit.GetComponentInParent<PlayerController>()?.TakeDamage(meleeDamage);
+        }
 
         // Wait for animation to finish
         yield return new WaitForSeconds(0.4f);
@@ -185,6 +278,7 @@ public class AnubisAI : EnemyAI
         // Spawn ankh(s)
         if (player != null)
         {
+            PlaySFX(throwSFX);
             Vector2 throwDir = (player.position - throwPoint.position).normalized;
 
             if (currentPhase < 3)
@@ -237,8 +331,37 @@ public class AnubisAI : EnemyAI
         if (actionCoroutine != null) StopCoroutine(actionCoroutine);
         sr.color = Color.white;
         bossHealthBar?.Hide();
+        growlingAudioSource?.Stop();
+        PlaySFX(deathSFX);
+        KillAllMinions();
+        doorTilemap.ClearAllTiles();
+        // Play door open sound
+        DoorOpeningAudioSource?.PlayOneShot(doorOpenSFX);
+        doorTilemap.GetComponent<TilemapCollider2D>().enabled = false;
         base.Die();
         // TODO: trigger win condition / end screen
+    }
+
+    void PlayLoop(AudioClip clip)
+    {
+        if (clip == null) return;
+        if (growlingAudioSource.clip == clip && growlingAudioSource.isPlaying) return;
+        growlingAudioSource.clip = clip;
+        growlingAudioSource.Play();
+    }
+
+    void PlaySFX(AudioClip clip)
+    {
+        if (clip == null) return;
+        StartCoroutine(DuckLoopForSFX(clip));
+    }
+
+    IEnumerator DuckLoopForSFX(AudioClip clip)
+    {
+        growlingAudioSource.volume = 0.5f;
+        audioSource.PlayOneShot(clip);
+        yield return new WaitForSeconds(clip.length);
+        growlingAudioSource.volume = 0.1f;
     }
 
 }
