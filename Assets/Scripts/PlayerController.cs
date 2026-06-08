@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sr;
     private AudioSource audioSource;
+    private PauseMenu pauseMenu;
 
     // ── State ─────────────────────────────────
     private Vector2 moveInput;
@@ -70,7 +72,6 @@ public class PlayerController : MonoBehaviour
     private static readonly int HashMoveX = Animator.StringToHash("MoveX");
     private static readonly int HashMoveY = Animator.StringToHash("MoveY");
     private static readonly int HashSpeed = Animator.StringToHash("Speed");
-    private static readonly int HashAttack = Animator.StringToHash("Attack");
     private static readonly int HashHurt = Animator.StringToHash("Hurt");
     private static readonly int HashDead = Animator.StringToHash("Dead");
 
@@ -86,6 +87,11 @@ public class PlayerController : MonoBehaviour
 
         if (attackHitbox != null)
             attackHitbox.SetActive(false);
+    }
+
+    void Start()
+    {
+        pauseMenu = FindFirstObjectByType<PauseMenu>();
     }
 
     private void Update()
@@ -309,13 +315,17 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Static;
 
-        Invoke(nameof(NotifyGameOver), 2f);
+        StartCoroutine(ShowGameOverAfterAnimation());
     }
 
-    private void NotifyGameOver()
+    IEnumerator ShowGameOverAfterAnimation()
     {
-        // GameManager.Instance.ShowGameOver();
-        Debug.Log("GAME OVER — player has died.");
+        // Wait for death animation to finish
+        // Get the length of the Dead animation clip
+        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+        float animLength = stateInfo.length;
+        yield return new WaitForSeconds(animLength + 0.5f); // small buffer after
+        GameManager.Instance?.TriggerGameOver();
     }
 
     // ── Audio ─────────────────────────────────
@@ -356,6 +366,12 @@ public class PlayerController : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x = xDir > 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
         transform.localScale = scale;
+    }
+
+    public void OnPause(InputValue value)
+    {
+        if (!value.isPressed) return;
+        pauseMenu?.OnPause(value);
     }
 
     // ── Public getters ────────────────────────

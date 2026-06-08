@@ -49,6 +49,7 @@ public class AnubisAI : EnemyAI
     public AudioClip ankhImpactSFX;       // ankh hits wall (add to AnkhProjectile too)
     public AudioClip doorOpenSFX;     // door rumbles open
 
+
     private List<GameObject> activeMinions = new List<GameObject>();
     private int currentPhase = 1;
     private float baseSpeed;
@@ -339,9 +340,16 @@ public class AnubisAI : EnemyAI
         DoorOpeningAudioSource?.PlayOneShot(doorOpenSFX);
         doorTilemap.GetComponent<TilemapCollider2D>().enabled = false;
         base.Die();
-        // TODO: trigger win condition / end screen
+        StartCoroutine(ShowWinAfterAnimation());
     }
 
+    IEnumerator ShowWinAfterAnimation()
+    {
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        float animLength = stateInfo.length;
+        yield return new WaitForSeconds(animLength + 0.5f);
+        GameManager.Instance?.TriggerWin();
+    }
     void PlayLoop(AudioClip clip)
     {
         if (clip == null) return;
