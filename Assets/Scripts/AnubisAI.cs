@@ -340,8 +340,9 @@ public class AnubisAI : EnemyAI
         // Play door open sound
         DoorOpeningAudioSource?.PlayOneShot(doorOpenSFX);
         doorTilemap.GetComponent<TilemapCollider2D>().enabled = false;
+        ShowWin();
+
         base.Die();
-        StartCoroutine(ShowWinAfterAnimation());
     }
 
     IEnumerator ShowWinAfterAnimation()
@@ -353,6 +354,14 @@ public class AnubisAI : EnemyAI
         yield return StartCoroutine(FadeManager.Instance.FadeOut(1f));
         SceneManager.LoadScene("CutsceneOutro");
     }
+
+    private void ShowWin()
+    {
+        // Load outro cutscene instead of win screen
+        SceneManager.LoadScene("CutsceneOutro");
+    }
+
+
     void PlayLoop(AudioClip clip)
     {
         if (clip == null) return;
