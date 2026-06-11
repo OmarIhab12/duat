@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class AnubisAI : EnemyAI
 {
@@ -348,7 +349,9 @@ public class AnubisAI : EnemyAI
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         float animLength = stateInfo.length;
         yield return new WaitForSeconds(animLength + 0.5f);
-        GameManager.Instance?.TriggerWin();
+        // Load outro cutscene instead of win screen
+        yield return StartCoroutine(FadeManager.Instance.FadeOut(1f));
+        SceneManager.LoadScene("CutsceneOutro");
     }
     void PlayLoop(AudioClip clip)
     {
